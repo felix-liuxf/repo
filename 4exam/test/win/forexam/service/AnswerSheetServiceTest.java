@@ -1,8 +1,11 @@
 package win.forexam.service;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import win.forexam.bean.AnswerSheetBean;
@@ -35,4 +38,13 @@ public class AnswerSheetServiceTest {
 		s.createAnswerSheet(bean);
 	}
 
+	@Test
+	public void testGetAnswerSheet(){
+		AnswerSheetService s = new AnswerSheetService();
+		AnswerSheetBean bean =s.getAnswerSheetById(1l);
+		
+		Assert.assertEquals(1, bean.getAnswerSheet().getId().longValue());
+	
+		Assert.assertEquals(6,bean.getListQuestion().size());
+	}
 }
