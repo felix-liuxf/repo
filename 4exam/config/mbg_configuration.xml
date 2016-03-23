@@ -40,19 +40,19 @@
             <property name="methodNameCalculator" value="extended" />
         </javaClientGenerator>
         <!-- schema你的数据库，tableName表明，domainObjectName对应你的javabean类名，是否生成相应的example -->
-        <table schema="4exam" tableName="ex_users" domainObjectName="Users"
+        <table schema="4exam" tableName="ex_user" domainObjectName="User"
             enableCountByExample="true" enableUpdateByExample="true"
             enableDeleteByExample="true" enableSelectByExample="true"
             selectByExampleQueryId="true">
-            <generatedKey column="id" sqlStatement="MySql" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
            
                   
         </table>
-        <table schema="4exam" tableName="ex_questions" domainObjectName="Questions"
+        <table schema="4exam" tableName="ex_question" domainObjectName="Question"
             enableCountByExample="true" enableUpdateByExample="true"
             enableDeleteByExample="true" enableSelectByExample="true"
             selectByExampleQueryId="true">
-            <generatedKey column="id" sqlStatement="MySql" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
            
                  
         </table>
@@ -60,7 +60,7 @@
             enableCountByExample="true" enableUpdateByExample="true"
             enableDeleteByExample="true" enableSelectByExample="true"
             selectByExampleQueryId="true">
-            <generatedKey column="id" sqlStatement="MySql" />
+            <generatedKey column="id" sqlStatement="MySql"  identity="true"/>
            
                         
         </table>
@@ -68,7 +68,7 @@
             enableCountByExample="true" enableUpdateByExample="true"
             enableDeleteByExample="true" enableSelectByExample="true"
             selectByExampleQueryId="true">
-            <generatedKey column="id" sqlStatement="MySql" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
            
                      
         </table>

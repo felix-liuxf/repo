@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="david.mybatis.model.Visitor" alias="Visitor1" />
+		<typeAlias type="win.forexam.model.User" alias="User" />
 
 	</typeAliases>
 	<environments default="development">
@@ -20,6 +20,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="win/forexam/mappers/VisitorMapper.xml" />
+		<mapper resource="win/forexam/mappers/UserMapper.xml" />
+		<mapper resource="win/forexam/mappers/AnswerSheetMapper.xml" />
+		<mapper resource="win/forexam/mappers/AnswerSheetQuestionMapper.xml" />
+		<mapper resource="win/forexam/mappers/QuestionMapper.xml" />
 	</mappers>
 </configuration>
