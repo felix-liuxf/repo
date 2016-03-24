@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import win.forexam.bean.AnswerSheetBean;
+import win.forexam.bean.QRCodeAnswerSheetBean;
 import win.forexam.bean.QRCodeQuestionBean;
 import win.forexam.model.AnswerSheet;
 import win.forexam.model.AnswerSheetQuestion;
@@ -51,9 +52,14 @@ public class PdfService {
 
 		PdfPCell cellQRCode = new PdfPCell();
 		cellQRCode.setBorderWidth(0);
+		
+		QRCodeAnswerSheetBean qrCodeBean= new QRCodeAnswerSheetBean();
+		qrCodeBean.setA(QRCodeAnswerSheetBean.ANSWER_SHEET);
+		qrCodeBean.setB(answerSheet.getId());
+		
 		BufferedImage bufferedImage = new QRCodeService().getQRCode("content");
 		Image image = Image.getInstance(bufferedImage, null);
-		image.scaleAbsolute(100, 100);
+		image.scaleAbsolute(80, 80);
 		image.setAlignment(Image.RIGHT);
 		cellQRCode.addElement(image);
 		tableHeader.addCell(cellQRCode);
@@ -84,7 +90,7 @@ public class PdfService {
 			cellQRCodeQuestion.setPaddingTop(4);
 			
 			QRCodeQuestionBean questionBean= new QRCodeQuestionBean();
-			questionBean.setA(QRCodeQuestionBean.ANSWER_SHEET);
+			questionBean.setA(QRCodeQuestionBean.QUESTION);
 			questionBean.setB(question.getAnswerSheetId());
 			questionBean.setC(question.getId());
 			
