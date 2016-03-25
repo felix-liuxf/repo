@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import win.forexam.bean.AnswerSheetBean;
 import win.forexam.bean.QRCodeAnswerSheetBean;
 import win.forexam.bean.QRCodeQuestionBean;
@@ -11,7 +14,6 @@ import win.forexam.model.AnswerSheet;
 import win.forexam.model.AnswerSheetQuestion;
 import win.forexam.qrcode.QRCodeService;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
@@ -23,6 +25,8 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class PdfService {
+	private Logger logger = LogManager.getLogger(this.getClass());
+
 	public void creatPdfAnswerSheet(AnswerSheetBean answerSheetBean)
 			throws DocumentException, IOException {
 		// step 1：创建Document对象
@@ -93,9 +97,12 @@ public class PdfService {
 			questionBean.setA(QRCodeQuestionBean.QUESTION);
 			questionBean.setB(question.getAnswerSheetId());
 			questionBean.setC(question.getId());
+			String jsonData =questionBean.toString();
+			logger.debug("jsonData:"+jsonData);
+			
 			
 			Image imageQuestion = Image.getInstance(
-					new QRCodeService().getQRCode(new ObjectMapper().writeValueAsString(questionBean)),null);
+					new QRCodeService().getQRCodeWithAnswer(jsonData),null);
 			imageQuestion.scaleAbsolute(100, 100);
 
 			cellQRCodeQuestion.addElement(imageQuestion);

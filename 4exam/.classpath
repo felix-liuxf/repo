@@ -18,9 +18,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itextpdf-5.5.8-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itextpdf-5.5.8.jar" sourcepath="WebContent/WEB-INF/lib/itextpdf-5.5.8-sources.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zxing-core-3.2.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zxing-core-3.2.1.jar" sourcepath="C:/Users/xianfliu/.m2/repository/com/google/zxing/core/3.2.1/core-3.2.1-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-core-2.7.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-databind-2.7.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-annotations-2.7.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/tomcat"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

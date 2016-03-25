@@ -223,7 +223,7 @@ public class QRCodeService {
 		return answer;
 	}
 
-	public ResultPoint[] getQRCodePoint(BufferedImage image) {
+	private ResultPoint[] getQRCodePoint(BufferedImage image) {
 
 		ResultPoint rp[] = null;
 		try {

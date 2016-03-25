@@ -48,4 +48,9 @@ public class QRCodeQuestionBean {
 		this.c = c;
 	}
 
+	@Override
+	public String toString() {
+		return "[a=" + a + ", b=" + b + ", c=" + c +"]";
+	}
+
 }

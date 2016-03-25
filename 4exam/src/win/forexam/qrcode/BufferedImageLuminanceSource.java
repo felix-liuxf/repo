@@ -61,7 +61,7 @@ private  Logger logger = LogManager.getLogger(this.getClass());
 	   
      int width = getWidth();
      int height = getHeight();
-     logger.debug("width:"+width +" height:"+height);
+    // logger.debug("width:"+width +" height:"+height);
      int area = width * height;
      byte[] matrix = new byte[area];
    
