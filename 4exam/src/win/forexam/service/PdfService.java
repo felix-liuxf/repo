@@ -95,7 +95,7 @@ public class PdfService {
 			questionBean.setC(question.getId());
 			
 			Image imageQuestion = Image.getInstance(
-					new QRCodeService().getQRCodeWithAnswer(new ObjectMapper().writeValueAsString(questionBean)),null);
+					new QRCodeService().getQRCode(new ObjectMapper().writeValueAsString(questionBean)),null);
 			imageQuestion.scaleAbsolute(100, 100);
 
 			cellQRCodeQuestion.addElement(imageQuestion);

@@ -16,17 +16,18 @@ public class AnswerSheetServiceTest {
 
 	@Test
 	public void testCreateAnswerSheet() {
+		
 		AnswerSheetService s = new AnswerSheetService();
 		AnswerSheetBean bean = new AnswerSheetBean();
 		AnswerSheet answerSheet = new AnswerSheet();
 		answerSheet.setName("Ä¬ÈÏ´ðÌâ¿¨");
 		answerSheet.setStudentNumber(5);
-		answerSheet.setQuestionNumber(6);
+		//answerSheet.setQuestionNumber(30);
 		bean.setAnswerSheet(answerSheet);
-
+		int questionNumber =35;
 		List<AnswerSheetQuestion> listQuestion = new ArrayList<AnswerSheetQuestion>();
 
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < questionNumber; i++) {
 			AnswerSheetQuestion question = new AnswerSheetQuestion();
 			question.setContent("q" + i);
 			question.setAnswer("A" + i);

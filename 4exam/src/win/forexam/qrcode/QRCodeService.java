@@ -228,7 +228,7 @@ public class QRCodeService {
 		ResultPoint rp[] = null;
 		try {
 
-			// LuminanceSource source = new BufferedImageLuminanceSource(image);
+			
 			LuminanceSource source = new BufferedImageLuminanceSource(image);
 			Binarizer binarizer = new HybridBinarizer(source);
 			BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);

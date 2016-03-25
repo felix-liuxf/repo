@@ -14,7 +14,7 @@ public class PdfServiceTest {
 	public void testCreatPdfAnswerSheet() throws DocumentException, IOException {
 		//fail("Not yet implemented"); // TODO
 		PdfService s = new PdfService();
-		AnswerSheetBean answerSheetBean = new AnswerSheetService().getAnswerSheetById(1l);
+		AnswerSheetBean answerSheetBean = new AnswerSheetService().getAnswerSheetById(6l);
 		s.creatPdfAnswerSheet(answerSheetBean);
 	}
 
