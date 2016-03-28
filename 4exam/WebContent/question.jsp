@@ -108,22 +108,22 @@
 				<!-- #content -->
 
 				<article>
-					<h2>新建答题卡</h2>
-					<ul>
-						<li>答题卡名称:<input type="text" id="answerSheetName"
-							value="默认答题卡" /></li>
-						<li>选择题数量:<input type="text" id="questionNumber" value="10" /></li>
-						<li>学生的人数:<input type="text" id="studentNumber" value="2" /></li>
-					</ul>
-					<input type="button" value=" 下 一 步 " onclick="js_showQuetionList()">
+					<h2>新建试题</h2>
+					<p>
+						试题的内容:<br/>
+						<textarea rows="6" cols="60">这里是试题的内容</textarea>
+						<br/>
+						试题的答案:<input type="checkbox" name="answer" value="A" />A
+						<input type="checkbox" name="answer" value="B" />B
+						<input type="checkbox" name="answer" value="C" />C
+						<input type="checkbox" name="answer" value="D" />D
+						
+					 <br /><br />
+					<input type="button" value="保存试题" onclick="js_showQuetionList()">
 					<br /> <br />
+					</p>
 				</article>
-				<article>
-					<h2>设置参考答案</h2>
-					<div id="div_question"></div>
-					<input type="button" value="生成答题卡 "
-						onclick="js_createAnswerSheet()">
-				</article>
+				
 
 
 			</section>
