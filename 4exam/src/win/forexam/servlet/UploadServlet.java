@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -146,21 +147,24 @@ public class UploadServlet extends HttpServlet {
 			List<FileItem> items = uploadHandler.parseRequest(request);
 			for (FileItem item : items) {
 				if (!item.isFormField()) {
-					File file = new File(request.getServletContext()
-							.getRealPath("/") + "imgs/", item.getName());
+					
+					String filePath =makeDirs(request.getServletContext()
+							.getRealPath("/") + "imgs/");
+					String fileName =generateFileName(item.getName()); 
+					File file = new File(filePath, fileName);
 					item.write(file);
 					JSONObject jsono = new JSONObject();
-					jsono.put("name", item.getName());
+					jsono.put("name", fileName);
 					jsono.put("size", item.getSize());
 					jsono.put("url",
-							"/4exam/UploadServlet?getfile=" + item.getName());
-					jsono.put("thumbnail_url", "/4exam/UploadServlet?getthumb="
-							+ item.getName());
-					jsono.put("delete_url", "/4exam/UploadServlet?delfile="
-							+ item.getName());
+							request.getContextPath()+"/UploadServlet?getfile=" + fileName);
+					jsono.put("thumbnail_url", request.getContextPath()+"/UploadServlet?getthumb="
+							+ fileName);
+					jsono.put("delete_url", request.getContextPath()+"/UploadServlet?delfile="
+							+ fileName);
 					jsono.put("delete_type", "GET");
 					json.put(jsono);
-					System.out.println(json.toString());
+					logger.debug(json.toString());
 				}
 			}
 		} catch (FileUploadException e) {
@@ -199,5 +203,29 @@ public class UploadServlet extends HttpServlet {
 			suffix = filename.substring(pos + 1);
 		}
 		return suffix;
+	}
+	
+	private String makeDirs(String dirs)
+	{
+		File file = new File(dirs);
+		if(!file.exists())
+		{
+			file.mkdirs();
+		}
+		return dirs;
+			
+	}
+	
+	private String generateFileName(String fileName)
+	{
+		String suffix = getSuffix(fileName);
+		
+		int pos = fileName.lastIndexOf('.');
+		
+		//String tmpFileName = fileName.substring(0,pos);
+		String tmpFileName = "t";
+		
+		return tmpFileName+"-"+Calendar.getInstance().getTimeInMillis()+"."+suffix;
+		
 	}
 }
