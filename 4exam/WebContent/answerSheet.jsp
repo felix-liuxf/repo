@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>4exam</title>
+<title>4exam-answerSheet</title>
 <link rel="stylesheet" href="css/styles.css" type="text/css"
 	media="screen" />
 <link rel="stylesheet" type="text/css" href="css/print.css"
