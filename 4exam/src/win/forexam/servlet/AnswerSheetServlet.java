@@ -51,7 +51,7 @@ public class AnswerSheetServlet extends HttpServlet {
 				+ new ObjectMapper().writeValueAsString(request
 						.getParameterMap()));
 
-		response.setContentType("application/x-json");
+		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter();

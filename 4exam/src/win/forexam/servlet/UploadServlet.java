@@ -50,6 +50,8 @@ public class UploadServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		if (request.getParameter("getfile") != null
 				&& !request.getParameter("getfile").isEmpty()) {
@@ -88,7 +90,7 @@ public class UploadServlet extends HttpServlet {
 			File file = new File(request.getServletContext().getRealPath("/")
 					+ "imgs/" + request.getParameter("getthumb"));
 			if (file.exists()) {
-				System.out.println(file.getAbsolutePath());
+				//System.out.println(file.getAbsolutePath());
 				String mimetype = getMimeType(file);
 				if (mimetype.endsWith("png") || mimetype.endsWith("jpeg")
 						|| mimetype.endsWith("jpg") || mimetype.endsWith("gif")) {
@@ -132,7 +134,9 @@ public class UploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		logger.debug(request.getServletContext().getRealPath("/"));
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			throw new IllegalArgumentException(
 					"Request is not multipart, please 'multipart/form-data' enctype for your form.");
