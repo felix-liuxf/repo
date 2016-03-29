@@ -31,3 +31,7 @@ else{
 <input type="button" name="Submit" value="插入图片" onclick="img()">
 </body>
 </html>
+
+
+
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 
